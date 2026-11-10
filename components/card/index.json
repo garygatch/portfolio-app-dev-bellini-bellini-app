@@ -1,0 +1,478 @@
+{
+  "type": "custom-component",
+  "name": "card",
+  "description": "## Reusable portfolio card\nDisplays caller-supplied category, title, description, and optional image and action. All six existing input bindings remain compatible with existing consumers.\n\n### Internal state navigation\n`linkDestination` accepts `/home`, `/about`, `/projects`, `/contact` and their bare page names. These are normalized to core `bln-link` state links (`home`, `about`, `projects`, `contact`), never root-relative URL links. Only valid absolute HTTP(S), mailto, or tel external destinations use URL mode; empty, unsupported, and malformed destinations hide the action. A nonblank link label is also required.\n\n### Presentation\nBellini column boxes provide stretch sizing and a growing summary to keep actions aligned in equal-height parent rows. Visual styles provide an ivory-white surface, subtle border, teal accents, and naturally wrapping text without utility classes or stylesheets. The article fills its consumer-provided height; equal heights across siblings depend on the parent row stretching its cells. Optional imagery remains caller-provided via `imageUrl`; no assets, fallback paths, or URLs are supplied.",
+  "children": [
+    {
+      "name": "article",
+      "attributes": [
+        {
+          "property": "aria-label",
+          "evaluate": "$ctrl.title || 'Portfolio summary'"
+        }
+      ],
+      "classList": [],
+      "styles": [
+        {
+          "property": "height",
+          "value": "100%"
+        },
+        {
+          "property": "width",
+          "value": "100%"
+        },
+        {
+          "property": "min-width",
+          "value": "0"
+        },
+        {
+          "property": "box-sizing",
+          "value": "border-box"
+        },
+        {
+          "property": "background-color",
+          "value": "#fffefa"
+        },
+        {
+          "property": "border",
+          "value": "1px solid #e5e7e4"
+        },
+        {
+          "property": "border-top",
+          "value": "3px solid #0f766e"
+        },
+        {
+          "property": "border-radius",
+          "value": "16px"
+        },
+        {
+          "property": "padding",
+          "value": "28px"
+        },
+        {
+          "property": "overflow-wrap",
+          "value": "anywhere"
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "box",
+          "orientation": "column",
+          "mainAxisAlignment": "flex-start",
+          "crossAxisAlignment": "stretch",
+          "gap": "24px"
+        }
+      },
+      "children": [
+        {
+          "name": "div",
+          "classList": [],
+          "displayExpression": "$ctrl.imageUrl",
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 0,
+              "shrinkFactor": 0,
+              "mainSize": "auto"
+            }
+          },
+          "children": [
+            {
+              "name": "img",
+              "attributes": [
+                {
+                  "property": "alt",
+                  "evaluate": "$ctrl.title || ''"
+                },
+                {
+                  "property": "loading",
+                  "value": "lazy"
+                }
+              ],
+              "classList": [],
+              "styles": [
+                {
+                  "property": "display",
+                  "value": "block"
+                },
+                {
+                  "property": "width",
+                  "value": "100%"
+                },
+                {
+                  "property": "max-width",
+                  "value": "100%"
+                },
+                {
+                  "property": "height",
+                  "value": "auto"
+                },
+                {
+                  "property": "border-radius",
+                  "value": "10px"
+                }
+              ],
+              "children": [],
+              "source": {
+                "url": "$ctrl.imageUrl",
+                "evaluate": true
+              }
+            }
+          ],
+          "comments": "Optional caller-provided image only; no uploaded assets or fallback sources are assumed."
+        },
+        {
+          "name": "div",
+          "classList": [],
+          "styles": [
+            {
+              "property": "min-width",
+              "value": "0"
+            }
+          ],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 1,
+              "shrinkFactor": 1,
+              "mainSize": "auto"
+            },
+            "container": {
+              "type": "box",
+              "orientation": "column",
+              "mainAxisAlignment": "flex-start",
+              "crossAxisAlignment": "stretch",
+              "gap": "14px"
+            }
+          },
+          "children": [
+            {
+              "name": "span",
+              "classList": [],
+              "displayExpression": "$ctrl.category",
+              "styles": [
+                {
+                  "property": "color",
+                  "value": "#0f766e"
+                },
+                {
+                  "property": "font-size",
+                  "value": "0.75rem"
+                },
+                {
+                  "property": "font-weight",
+                  "value": "600"
+                },
+                {
+                  "property": "letter-spacing",
+                  "value": "0.08em"
+                },
+                {
+                  "property": "line-height",
+                  "value": "1.5"
+                },
+                {
+                  "property": "text-transform",
+                  "value": "uppercase"
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item",
+                  "growFactor": 0,
+                  "shrinkFactor": 0,
+                  "mainSize": "auto"
+                }
+              },
+              "children": [
+                {
+                  "name": "text",
+                  "textContent": "$ctrl.category",
+                  "evaluate": true
+                }
+              ]
+            },
+            {
+              "name": "h3",
+              "classList": [],
+              "styles": [
+                {
+                  "property": "margin",
+                  "value": "0"
+                },
+                {
+                  "property": "color",
+                  "value": "#182b32"
+                },
+                {
+                  "property": "font-size",
+                  "value": "1.4rem"
+                },
+                {
+                  "property": "font-weight",
+                  "value": "600"
+                },
+                {
+                  "property": "line-height",
+                  "value": "1.3"
+                },
+                {
+                  "property": "white-space",
+                  "value": "normal"
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item",
+                  "growFactor": 0,
+                  "shrinkFactor": 0,
+                  "mainSize": "auto"
+                }
+              },
+              "children": [
+                {
+                  "name": "text",
+                  "textContent": "$ctrl.title",
+                  "evaluate": true
+                }
+              ]
+            },
+            {
+              "name": "p",
+              "classList": [],
+              "styles": [
+                {
+                  "property": "margin",
+                  "value": "0"
+                },
+                {
+                  "property": "color",
+                  "value": "#637078"
+                },
+                {
+                  "property": "font-size",
+                  "value": "0.95rem"
+                },
+                {
+                  "property": "line-height",
+                  "value": "1.75"
+                },
+                {
+                  "property": "white-space",
+                  "value": "normal"
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item",
+                  "growFactor": 1,
+                  "shrinkFactor": 0,
+                  "mainSize": "auto"
+                }
+              },
+              "children": [
+                {
+                  "name": "text",
+                  "textContent": "$ctrl.description",
+                  "evaluate": true
+                }
+              ]
+            },
+            {
+              "name": "Link",
+              "nodeName": "bln-link",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                }
+              ],
+              "classList": [],
+              "displayExpression": "$ctrl.hasLinkLabel && $ctrl.resolvedLink",
+              "styles": [
+                {
+                  "property": "color",
+                  "value": "#0f766e"
+                },
+                {
+                  "property": "font-weight",
+                  "value": "600"
+                },
+                {
+                  "property": "padding-top",
+                  "value": "10px"
+                },
+                {
+                  "property": "white-space",
+                  "value": "normal"
+                },
+                {
+                  "property": "overflow-wrap",
+                  "value": "anywhere"
+                },
+                {
+                  "property": "min-width",
+                  "value": "0"
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item",
+                  "growFactor": 0,
+                  "shrinkFactor": 0,
+                  "mainSize": "auto",
+                  "crossAxisAlignment": "flex-start"
+                }
+              },
+              "children": [],
+              "comments": "Only renders for a nonblank label and validated destination. Internal destinations use the LinkState schema; arrow-right is verified Font Awesome v5.",
+              "type": "core-component",
+              "expressions": [
+                {
+                  "expression": "$ctrl.resolvedLink",
+                  "to": "link"
+                },
+                {
+                  "expression": "$ctrl.linkLabel",
+                  "to": "text"
+                },
+                {
+                  "expression": "'current_window'",
+                  "to": "openIn"
+                },
+                {
+                  "expression": "{type: 'font-icon', style: 'solid', name: 'arrow-right', position: 'right'}",
+                  "to": "icon"
+                },
+                {
+                  "expression": "$ctrl.title ? $ctrl.linkLabel + ' — ' + $ctrl.title : $ctrl.linkLabel",
+                  "to": "tooltip"
+                }
+              ]
+            }
+          ],
+          "comments": "Growing summary absorbs remaining height so optional actions align at the bottom of stretched sibling cards."
+        }
+      ],
+      "comments": "Semantic card fills the stretched consumer cell; no fixed text heights, truncation, or utility-class layout."
+    }
+  ],
+  "variables": [
+    {
+      "name": "resolvedLink",
+      "description": "Validated core Link union value, or null when the destination is unsupported.",
+      "type": "property",
+      "value": "null"
+    },
+    {
+      "name": "hasLinkLabel",
+      "description": "Whether the caller supplied a nonblank action label.",
+      "type": "property",
+      "value": "false"
+    },
+    {
+      "name": "resolveDestination",
+      "description": "Normalizes existing internal destinations to state links and validates external destinations without changing caller inputs.",
+      "type": "method",
+      "body": "$ctrl.resolvedLink = null;\n$ctrl.hasLinkLabel = typeof $ctrl.linkLabel === 'string' && $ctrl.linkLabel.trim().length > 0;\nconst destination = typeof $ctrl.linkDestination === 'string' ? $ctrl.linkDestination.trim() : '';\nif (!destination) { return; }\n// Allowlist known application states; preserve all existing slash-prefixed consumers.\nconst page = destination.charAt(0) === '/' ? destination.slice(1) : destination;\nif (['home', 'about', 'projects', 'contact'].indexOf(page) !== -1) {\n  $ctrl.resolvedLink = { type: 'state', state: page, parameters: {} };\n  return;\n}\n// Reject relative routes, script schemes, whitespace, and malformed external targets.\nif (/\\s/.test(destination)) { return; }\nlet valid = false;\nif (/^https?:\\/\\//i.test(destination)) {\n  try {\n    const parsed = new URL(destination);\n    valid = (parsed.protocol === 'http:' || parsed.protocol === 'https:') && !!parsed.hostname;\n  } catch (error) {\n    valid = false;\n  }\n} else if (/^mailto:[^@?]+@[^@?]+(?:\\?[^\\s]*)?$/i.test(destination)) {\n  valid = true;\n} else if (/^tel:\\+?[0-9().-]+$/i.test(destination) && /[0-9]/.test(destination.slice(4))) {\n  valid = true;\n}\nif (valid) {\n  $ctrl.resolvedLink = { type: 'url', path: destination, evaluate: false };\n}",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": [
+        "$ctrl.linkDestination",
+        "$ctrl.linkLabel"
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "name": "category",
+      "type": "<",
+      "default": "''",
+      "description": "Short eyebrow or category label shown above the title.",
+      "visibleWhen": "",
+      "label": "",
+      "group": "",
+      "example": "",
+      "actions": [],
+      "propertyType": "text",
+      "autocomplete": [],
+      "includeAssets": false
+    },
+    {
+      "name": "title",
+      "type": "<",
+      "default": "''",
+      "description": "Primary portfolio card heading.",
+      "visibleWhen": "",
+      "label": "",
+      "group": "",
+      "example": "",
+      "actions": [],
+      "propertyType": "text",
+      "autocomplete": [],
+      "includeAssets": false
+    },
+    {
+      "name": "description",
+      "type": "<",
+      "default": "''",
+      "description": "Summary copy displayed beneath the title.",
+      "visibleWhen": "",
+      "label": "",
+      "group": "",
+      "example": "",
+      "actions": [],
+      "propertyType": "text",
+      "autocomplete": [],
+      "includeAssets": false
+    },
+    {
+      "name": "imageUrl",
+      "type": "<",
+      "default": "''",
+      "description": "Optional caller-provided image URL. The image area is omitted when empty; no default asset is supplied.",
+      "visibleWhen": "",
+      "label": "",
+      "group": "",
+      "example": "",
+      "actions": [],
+      "propertyType": "text",
+      "autocomplete": [],
+      "includeAssets": false
+    },
+    {
+      "name": "linkLabel",
+      "type": "<",
+      "default": "''",
+      "description": "Optional call-to-action label; shown only when nonblank and the destination is valid.",
+      "visibleWhen": "",
+      "label": "",
+      "group": "",
+      "example": "",
+      "actions": [],
+      "propertyType": "text",
+      "autocomplete": [],
+      "includeAssets": false
+    },
+    {
+      "name": "linkDestination",
+      "type": "<",
+      "default": "''",
+      "description": "Optional destination: /home, /about, /projects, /contact or their bare names use application state navigation. Valid absolute HTTP(S), mailto and tel destinations use URL links. Invalid destinations hide the action.",
+      "visibleWhen": "",
+      "label": "",
+      "group": "",
+      "example": "",
+      "actions": [],
+      "propertyType": "text",
+      "autocomplete": [],
+      "includeAssets": false
+    }
+  ],
+  "modules": [],
+  "styles": []
+}

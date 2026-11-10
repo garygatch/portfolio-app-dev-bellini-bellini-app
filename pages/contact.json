@@ -1,0 +1,1370 @@
+{
+  "name": "contact",
+  "type": "page",
+  "url": "/contact",
+  "params": {},
+  "variables": [
+    {
+      "name": "contactForm",
+      "description": "Local draft only; no backend, recipient, storage, or email service is connected.",
+      "type": "object",
+      "properties": [
+        {
+          "name": "name",
+          "description": "",
+          "type": "property",
+          "value": "''"
+        },
+        {
+          "name": "email",
+          "description": "",
+          "type": "property",
+          "value": "''"
+        },
+        {
+          "name": "message",
+          "description": "",
+          "type": "property",
+          "value": "''"
+        }
+      ]
+    },
+    {
+      "name": "feedbackStatus",
+      "description": "idle, error, or ready; ready means locally validated, never sent.",
+      "type": "property",
+      "value": "'idle'"
+    },
+    {
+      "name": "feedbackMessage",
+      "description": "Form-level live feedback; field errors remain inside core inputs.",
+      "type": "property",
+      "value": "''"
+    },
+    {
+      "name": "preview",
+      "description": "Trimmed local preview, cleared whenever the draft changes.",
+      "type": "property",
+      "value": "null"
+    },
+    {
+      "name": "attempted",
+      "description": "Requests core field validation after an explicit preview attempt.",
+      "type": "property",
+      "value": "false"
+    },
+    {
+      "name": "lastAttempt",
+      "description": "Draft snapshot used to invalidate stale feedback without altering draft values.",
+      "type": "property",
+      "value": "''"
+    },
+    {
+      "name": "emailPattern",
+      "description": "Whitespace-free email format shared by the core input and local handler.",
+      "type": "property",
+      "value": "'^[^\\\\s@]+@[^\\\\s@]+[.][^\\\\s@]+$'"
+    },
+    {
+      "name": "validateTrimmed",
+      "description": "Adds only the trim-aware business rule when raw required/minLength checks would otherwise pass; avoids duplicate built-in errors.",
+      "type": "method",
+      "body": "const raw = typeof newValue === 'string' ? newValue : '';\nif (raw.length >= minimum && raw.trim().length < minimum) {\n  return minimum === 1 ? 'Enter a name, not only whitespace.' : 'Use at least 12 characters after removing leading and trailing whitespace.';\n}",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "newValue",
+        "minimum"
+      ],
+      "watch": []
+    },
+    {
+      "name": "invalidatePreview",
+      "description": "Discard stale ready/error state when the draft changes; no persistence or network activity.",
+      "type": "method",
+      "body": "if (JSON.stringify($ctrl.contactForm) !== $ctrl.lastAttempt) {\n  $ctrl.feedbackStatus = 'idle';\n  $ctrl.feedbackMessage = '';\n  $ctrl.preview = null;\n}",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": [
+        "$ctrl.contactForm.name",
+        "$ctrl.contactForm.email",
+        "$ctrl.contactForm.message"
+      ]
+    },
+    {
+      "name": "handleContactKeyDown",
+      "description": "Enter in a single-line field previews consistently; leaves composition, modifier shortcuts, textarea newlines and button keyboard behavior untouched.",
+      "type": "method",
+      "body": "if (!event || event.defaultPrevented || event.isComposing || event.repeat || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) { return; }\nif (event.key === 'Enter' && event.target && event.target.tagName === 'INPUT') {\n  $ctrl.handleContactPreview(event);\n}",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "event"
+      ],
+      "watch": []
+    },
+    {
+      "name": "handleContactPreview",
+      "description": "Shared synchronous preview path for form submit, button event local, and input Enter. Prevents navigation, retains native validity checks, and enforces trimmed message minimum 12. Never sends anything.",
+      "type": "method",
+      "body": "if (event && typeof event.preventDefault === 'function') { event.preventDefault(); }\n$ctrl.attempted = true;\n$ctrl.lastAttempt = JSON.stringify($ctrl.contactForm);\n$ctrl.preview = null;\nconst draft = $ctrl.contactForm || {};\nconst rawName = typeof draft.name === 'string' ? draft.name : '';\nconst rawEmail = typeof draft.email === 'string' ? draft.email : '';\nconst rawMessage = typeof draft.message === 'string' ? draft.message : '';\nconst name = rawName.trim();\nconst email = rawEmail.trim();\nconst message = rawMessage.trim();\n// Core constraints and trim-aware rules must agree before showing a preview.\nconst valid = name.length >= 1 && rawName.length <= 100 && email.length > 0 && rawEmail.length <= 254 && new RegExp($ctrl.emailPattern).test(rawEmail) && message.length >= 12 && rawMessage.length <= 4000;\nlet form = null;\nconst target = event && event.target;\nif (target && typeof target.closest === 'function') { form = target.closest('form'); }\nconst nativeValid = !form || typeof form.reportValidity !== 'function' || form.reportValidity();\nif (!valid || !nativeValid) {\n  $ctrl.feedbackStatus = 'error';\n  $ctrl.feedbackMessage = 'Preview unavailable. Review the highlighted fields and the limits above. Nothing has been sent.';\n  return;\n}\n$ctrl.preview = {name: name, email: email, message: message};\n$ctrl.feedbackStatus = 'ready';\n$ctrl.feedbackMessage = 'Local preview ready — NOT sent. No email or backend is connected; delivery is not configured.';",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "event"
+      ],
+      "watch": []
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [
+        {
+          "property": "height",
+          "value": "100%"
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "box",
+          "orientation": "column",
+          "mainAxisAlignment": "flex-start",
+          "crossAxisAlignment": "stretch"
+        }
+      },
+      "children": [
+        {
+          "name": "navigation",
+          "nodeName": "navigation",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 0,
+              "shrinkFactor": 0,
+              "mainSize": "auto"
+            }
+          },
+          "children": [],
+          "comments": "Shared responsive navigation already uses confirmed home/about/projects/contact state links and preserves core keyboard behavior.",
+          "type": "custom-component",
+          "ownerId": "6aebcf9fa81d56bf73bff9b1",
+          "ownerType": "app",
+          "expressions": []
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [
+            {
+              "property": "min-width",
+              "value": "0"
+            },
+            {
+              "property": "overflow",
+              "value": "auto"
+            },
+            {
+              "property": "background-color",
+              "value": "#FAF8F3"
+            }
+          ],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 1,
+              "shrinkFactor": 1,
+              "mainSize": "100%"
+            }
+          },
+          "children": [
+            {
+              "name": "main",
+              "nodeName": "main",
+              "elementId": "contact-content",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "width",
+                  "value": "100%"
+                },
+                {
+                  "property": "max-width",
+                  "value": "960px"
+                },
+                {
+                  "property": "margin",
+                  "value": "0 auto"
+                },
+                {
+                  "property": "padding",
+                  "value": "clamp(32px, 6vw, 72px) clamp(20px, 4vw, 48px)"
+                },
+                {
+                  "property": "box-sizing",
+                  "value": "border-box"
+                },
+                {
+                  "property": "color",
+                  "value": "#17252F"
+                }
+              ],
+              "layout": {
+                "container": {
+                  "type": "box",
+                  "orientation": "column",
+                  "mainAxisAlignment": "flex-start",
+                  "crossAxisAlignment": "stretch",
+                  "gap": "36px"
+                }
+              },
+              "children": [
+                {
+                  "name": "section",
+                  "nodeName": "section",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "aria-labelledby",
+                      "value": "contact-heading"
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "flex-start",
+                      "gap": "18px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#0F766E"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "600"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "0.1em"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.8rem"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "LET’S CONNECT",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "h1",
+                      "nodeName": "h1",
+                      "elementId": "contact-heading",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "clamp(2.25rem, 6vw, 3.75rem)"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "600"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.12"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "-0.035em"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Have something in mind?",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "620px"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.8"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "A new idea, a thoughtful question, or a simple hello is a lovely place to start. Draft a note below and see a local preview.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    }
+                  ],
+                  "comments": ""
+                },
+                {
+                  "name": "form",
+                  "nodeName": "form",
+                  "elementId": "contact-form",
+                  "attributes": [
+                    {
+                      "property": "aria-labelledby",
+                      "value": "preview-heading"
+                    },
+                    {
+                      "property": "aria-describedby",
+                      "value": "delivery-note form-limits"
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {
+                    "submit": "$ctrl.handleContactPreview($event)",
+                    "keydown": "$ctrl.handleContactKeyDown($event)"
+                  },
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "background-color",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "property": "border",
+                      "value": "1px solid #DCE4DF"
+                    },
+                    {
+                      "property": "border-radius",
+                      "value": "18px"
+                    },
+                    {
+                      "property": "padding",
+                      "value": "clamp(22px, 4vw, 40px)"
+                    },
+                    {
+                      "property": "min-width",
+                      "value": "0"
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "stretch",
+                      "gap": "24px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "h2",
+                      "nodeName": "h2",
+                      "elementId": "preview-heading",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "clamp(1.3rem, 3vw, 1.7rem)"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.35"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "600"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Message preview — delivery not configured",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "delivery-note",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.75"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "No email or backend is connected. This form only validates and previews your note locally; nothing is sent or saved. Please avoid sensitive information.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "form-limits",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.9rem"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.7"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "All fields are required. Name: up to 100 characters. Email: a valid address, up to 254 characters, without spaces. Message: 12–4,000 characters; leading and trailing whitespace does not count toward the minimum.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "div",
+                      "nodeName": "div",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        },
+                        "container": {
+                          "type": "grid",
+                          "columns": [
+                            {
+                              "type": "other",
+                              "value": "repeat(auto-fit, minmax(min(100%, 260px), 1fr))"
+                            }
+                          ],
+                          "rows": [
+                            {
+                              "type": "other",
+                              "value": "auto"
+                            }
+                          ],
+                          "columnGap": "24px",
+                          "rowGap": "24px",
+                          "columnAxisAlignment": "stretch",
+                          "rowAxisAlignment": "start"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "Text Input",
+                          "nodeName": "bln-text-input",
+                          "elementId": "",
+                          "attributes": [
+                            {
+                              "property": "core",
+                              "value": ""
+                            }
+                          ],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "core-component",
+                          "expressions": [
+                            {
+                              "to": "label",
+                              "expression": "'Name (required)'"
+                            },
+                            {
+                              "to": "value",
+                              "expression": "$ctrl.contactForm.name"
+                            },
+                            {
+                              "to": "type",
+                              "expression": "'text'"
+                            },
+                            {
+                              "to": "labelPosition",
+                              "expression": "'top'"
+                            },
+                            {
+                              "to": "placeholder",
+                              "expression": "'Your name'"
+                            },
+                            {
+                              "to": "isRequired",
+                              "expression": "true"
+                            },
+                            {
+                              "to": "minLength",
+                              "expression": "1"
+                            },
+                            {
+                              "to": "maxLength",
+                              "expression": "100"
+                            },
+                            {
+                              "to": "validateOnLoad",
+                              "expression": "$ctrl.attempted"
+                            },
+                            {
+                              "to": "onValidate",
+                              "expression": "$ctrl.validateTrimmed(newValue, 1)"
+                            }
+                          ],
+                          "formControl": {
+                            "modelName": "value"
+                          }
+                        },
+                        {
+                          "name": "Text Input",
+                          "nodeName": "bln-text-input",
+                          "elementId": "",
+                          "attributes": [
+                            {
+                              "property": "core",
+                              "value": ""
+                            }
+                          ],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "core-component",
+                          "expressions": [
+                            {
+                              "to": "label",
+                              "expression": "'Email (required)'"
+                            },
+                            {
+                              "to": "value",
+                              "expression": "$ctrl.contactForm.email"
+                            },
+                            {
+                              "to": "type",
+                              "expression": "'email'"
+                            },
+                            {
+                              "to": "labelPosition",
+                              "expression": "'top'"
+                            },
+                            {
+                              "to": "placeholder",
+                              "expression": "'Your email address'"
+                            },
+                            {
+                              "to": "isRequired",
+                              "expression": "true"
+                            },
+                            {
+                              "to": "maxLength",
+                              "expression": "254"
+                            },
+                            {
+                              "to": "pattern",
+                              "expression": "$ctrl.emailPattern"
+                            },
+                            {
+                              "to": "validateOnLoad",
+                              "expression": "$ctrl.attempted"
+                            }
+                          ],
+                          "formControl": {
+                            "modelName": "value"
+                          }
+                        }
+                      ],
+                      "comments": "Intrinsic grid stacks fields on narrow screens without CSS breakpoints or fixed placements."
+                    },
+                    {
+                      "name": "Text Input",
+                      "nodeName": "bln-text-input",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "core",
+                          "value": ""
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [],
+                      "comments": "",
+                      "type": "core-component",
+                      "expressions": [
+                        {
+                          "to": "label",
+                          "expression": "'Message (required)'"
+                        },
+                        {
+                          "to": "value",
+                          "expression": "$ctrl.contactForm.message"
+                        },
+                        {
+                          "to": "type",
+                          "expression": "'text-area'"
+                        },
+                        {
+                          "to": "labelPosition",
+                          "expression": "'top'"
+                        },
+                        {
+                          "to": "placeholder",
+                          "expression": "'Tell me a little about your idea…'"
+                        },
+                        {
+                          "to": "isRequired",
+                          "expression": "true"
+                        },
+                        {
+                          "to": "minLength",
+                          "expression": "12"
+                        },
+                        {
+                          "to": "maxLength",
+                          "expression": "4000"
+                        },
+                        {
+                          "to": "rows",
+                          "expression": "6"
+                        },
+                        {
+                          "to": "validateOnLoad",
+                          "expression": "$ctrl.attempted"
+                        },
+                        {
+                          "to": "onValidate",
+                          "expression": "$ctrl.validateTrimmed(newValue, 12)"
+                        }
+                      ],
+                      "formControl": {
+                        "modelName": "value"
+                      }
+                    },
+                    {
+                      "name": "Button",
+                      "nodeName": "bln-button",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "core",
+                          "value": ""
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item",
+                          "crossAxisAlignment": "flex-start"
+                        }
+                      },
+                      "children": [],
+                      "comments": "Uses schema-confirmed event local, not $event. Does not invent a submit-type binding; form submit and input Enter independently share the guarded handler. Core focus and activation behavior remain intact.",
+                      "type": "core-component",
+                      "expressions": [
+                        {
+                          "to": "label",
+                          "expression": "'Preview message'"
+                        },
+                        {
+                          "to": "type",
+                          "expression": "'primary'"
+                        },
+                        {
+                          "to": "tooltip",
+                          "expression": "'Validate locally — this does not send a message'"
+                        },
+                        {
+                          "to": "icon",
+                          "expression": "{type: 'font-icon', style: 'solid', name: 'envelope', position: 'left'}"
+                        },
+                        {
+                          "to": "onClick",
+                          "expression": "$ctrl.handleContactPreview(event)"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "contact-feedback",
+                      "attributes": [
+                        {
+                          "property": "role",
+                          "value": "status"
+                        },
+                        {
+                          "property": "aria-live",
+                          "value": "polite"
+                        },
+                        {
+                          "property": "aria-atomic",
+                          "value": "true"
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.7"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#17252F"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "$ctrl.feedbackMessage",
+                          "evaluate": true
+                        }
+                      ],
+                      "comments": "Persistent live region exists before updates. Form-level summary only; core inputs display field-specific errors."
+                    },
+                    {
+                      "name": "section",
+                      "nodeName": "section",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "aria-label",
+                          "value": "Local message preview — not sent"
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "$ctrl.feedbackStatus === 'ready' && $ctrl.preview",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "border-top",
+                          "value": "1px solid #DCE4DF"
+                        },
+                        {
+                          "property": "padding-top",
+                          "value": "24px"
+                        },
+                        {
+                          "property": "overflow-wrap",
+                          "value": "anywhere"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        },
+                        "container": {
+                          "type": "box",
+                          "orientation": "column",
+                          "mainAxisAlignment": "flex-start",
+                          "crossAxisAlignment": "stretch",
+                          "gap": "12px"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "h3",
+                          "nodeName": "h3",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "margin",
+                              "value": "0"
+                            },
+                            {
+                              "property": "font-size",
+                              "value": "1.1rem"
+                            },
+                            {
+                              "property": "font-weight",
+                              "value": "600"
+                            }
+                          ],
+                          "layout": {
+                            "cell": {
+                              "type": "box-item"
+                            }
+                          },
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "Local preview — not sent",
+                              "evaluate": false
+                            }
+                          ],
+                          "comments": ""
+                        },
+                        {
+                          "name": "p",
+                          "nodeName": "p",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "margin",
+                              "value": "0"
+                            },
+                            {
+                              "property": "line-height",
+                              "value": "1.7"
+                            }
+                          ],
+                          "layout": {
+                            "cell": {
+                              "type": "box-item"
+                            }
+                          },
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "$ctrl.preview.name + ' · ' + $ctrl.preview.email",
+                              "evaluate": true
+                            }
+                          ],
+                          "comments": ""
+                        },
+                        {
+                          "name": "p",
+                          "nodeName": "p",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "margin",
+                              "value": "0"
+                            },
+                            {
+                              "property": "white-space",
+                              "value": "pre-wrap"
+                            },
+                            {
+                              "property": "line-height",
+                              "value": "1.8"
+                            }
+                          ],
+                          "layout": {
+                            "cell": {
+                              "type": "box-item"
+                            }
+                          },
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "$ctrl.preview.message",
+                              "evaluate": true
+                            }
+                          ],
+                          "comments": ""
+                        }
+                      ],
+                      "comments": "Plain text rendering escapes user content; preview is never HTML and is cleared when edited."
+                    }
+                  ],
+                  "comments": "No action URL or novalidate override. All submission paths prevent default and use the same local rules. Core inputs own their inline validation errors; no duplicate field-error elements."
+                },
+                {
+                  "name": "Link",
+                  "nodeName": "bln-link",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "core",
+                      "value": ""
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "crossAxisAlignment": "flex-start"
+                    }
+                  },
+                  "children": [],
+                  "comments": "Single contextual core link; Home and About remain available through shared state-linked navigation. No navigation buttons or root-relative internal URLs.",
+                  "type": "core-component",
+                  "expressions": [
+                    {
+                      "to": "link",
+                      "expression": "{type: 'state', state: 'projects', parameters: {}}"
+                    },
+                    {
+                      "to": "text",
+                      "expression": "'Explore projects'"
+                    },
+                    {
+                      "to": "openIn",
+                      "expression": "'current_window'"
+                    },
+                    {
+                      "to": "tooltip",
+                      "expression": "'Browse the portfolio projects'"
+                    }
+                  ]
+                },
+                {
+                  "name": "footer",
+                  "nodeName": "footer",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "border-top",
+                      "value": "1px solid #DCE4DF"
+                    },
+                    {
+                      "property": "padding-top",
+                      "value": "24px"
+                    },
+                    {
+                      "property": "color",
+                      "value": "#52636B"
+                    },
+                    {
+                      "property": "font-size",
+                      "value": "0.875rem"
+                    },
+                    {
+                      "property": "line-height",
+                      "value": "1.7"
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Portfolio · Thoughtful work, meaningful conversations. Contact delivery requires a configured backend or email service before launch.",
+                      "evaluate": false
+                    }
+                  ],
+                  "comments": ""
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": ""
+    }
+  ],
+  "description": "## Contact\nLocal-only message preview with responsive Bellini layouts and the shared Portfolio navigation. Required name (1–100), email (up to 254), and message (12–4000 characters) are checked by core fields and the preview handler, including trimmed whitespace checks. Button activation, Enter in single-line fields, and form submission share one guarded handler; textarea Enter retains newlines. Feedback is a persistent polite live region and edits invalidate the previous preview. No data is sent or persisted. **Production delivery is blocked until the user provides a backend/email service and end-to-end delivery is verified.** Existing /contact route and contact state are preserved; all Contact navigation uses confirmed sibling states."
+}

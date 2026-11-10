@@ -1,0 +1,1858 @@
+{
+  "name": "home",
+  "type": "page",
+  "url": "/home",
+  "params": {},
+  "variables": [],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [
+        {
+          "property": "height",
+          "value": "100%"
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "box",
+          "orientation": "column",
+          "mainAxisAlignment": "flex-start",
+          "crossAxisAlignment": "stretch"
+        }
+      },
+      "children": [
+        {
+          "name": "navigation",
+          "nodeName": "navigation",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 0,
+              "shrinkFactor": 0,
+              "mainSize": "auto"
+            }
+          },
+          "children": [],
+          "comments": "",
+          "type": "custom-component",
+          "ownerId": "6aebcf9fa81d56bf73bff9b1",
+          "ownerType": "app",
+          "expressions": []
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "conditionalStyles": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": "",
+            "trackByIndex": false
+          },
+          "styles": [
+            {
+              "property": "min-width",
+              "value": "0"
+            },
+            {
+              "property": "overflow",
+              "value": "auto"
+            },
+            {
+              "property": "background-color",
+              "value": "#FAF8F3"
+            }
+          ],
+          "layout": {
+            "cell": {
+              "type": "box-item",
+              "growFactor": 1,
+              "shrinkFactor": 1,
+              "mainSize": "100%"
+            }
+          },
+          "children": [
+            {
+              "name": "main",
+              "nodeName": "main",
+              "elementId": "home-content",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "conditionalStyles": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": "",
+                "trackByIndex": false
+              },
+              "styles": [
+                {
+                  "property": "width",
+                  "value": "100%"
+                },
+                {
+                  "property": "max-width",
+                  "value": "1240px"
+                },
+                {
+                  "property": "margin",
+                  "value": "0 auto"
+                },
+                {
+                  "property": "padding",
+                  "value": "clamp(40px, 7vw, 96px) clamp(20px, 5vw, 56px)"
+                },
+                {
+                  "property": "box-sizing",
+                  "value": "border-box"
+                },
+                {
+                  "property": "color",
+                  "value": "#17252F"
+                }
+              ],
+              "layout": {
+                "container": {
+                  "type": "box",
+                  "orientation": "column",
+                  "mainAxisAlignment": "flex-start",
+                  "crossAxisAlignment": "stretch",
+                  "gap": "clamp(56px, 8vw, 96px)"
+                }
+              },
+              "children": [
+                {
+                  "name": "section",
+                  "nodeName": "section",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "aria-labelledby",
+                      "value": "home-heading"
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "flex-start",
+                      "gap": "28px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#0F766E"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.8rem"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "0.14em"
+                        },
+                        {
+                          "property": "text-transform",
+                          "value": "uppercase"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Design & Development",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "h1",
+                      "nodeName": "h1",
+                      "elementId": "home-heading",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "1000px"
+                        },
+                        {
+                          "property": "font-family",
+                          "value": "Georgia, 'Times New Roman', serif"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "clamp(2.75rem, 6.7vw, 5.5rem)"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.06"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "-0.045em"
+                        },
+                        {
+                          "property": "overflow-wrap",
+                          "value": "anywhere"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Thoughtful digital experiences, made with purpose.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "660px"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "1.125rem"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.8"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "A considered approach to design and development—bringing clarity to complex ideas and care to the details that make digital experiences useful.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "div",
+                      "nodeName": "div",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "width",
+                          "value": "100%"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "540px"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        },
+                        "container": {
+                          "type": "grid",
+                          "columns": [
+                            {
+                              "type": "other",
+                              "value": "repeat(auto-fit, minmax(min(100%, 220px), 1fr))"
+                            }
+                          ],
+                          "rows": [
+                            {
+                              "type": "other",
+                              "value": "auto"
+                            }
+                          ],
+                          "columnGap": "24px",
+                          "rowGap": "12px",
+                          "columnAxisAlignment": "start",
+                          "rowAxisAlignment": "center"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "Link",
+                          "nodeName": "bln-link",
+                          "elementId": "",
+                          "attributes": [
+                            {
+                              "property": "core",
+                              "value": ""
+                            }
+                          ],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "core-component",
+                          "expressions": [
+                            {
+                              "to": "text",
+                              "expression": "'Explore selected work'"
+                            },
+                            {
+                              "to": "link",
+                              "expression": "{type: 'state', state: 'projects', parameters: {}}"
+                            },
+                            {
+                              "to": "openIn",
+                              "expression": "'current_window'"
+                            },
+                            {
+                              "to": "icon",
+                              "expression": "{type: 'font-icon', style: 'solid', name: 'arrow-right', position: 'right'}"
+                            },
+                            {
+                              "to": "tooltip",
+                              "expression": "'Browse the sample project concepts'"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Link",
+                          "nodeName": "bln-link",
+                          "elementId": "",
+                          "attributes": [
+                            {
+                              "property": "core",
+                              "value": ""
+                            }
+                          ],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "core-component",
+                          "expressions": [
+                            {
+                              "to": "text",
+                              "expression": "'Get in touch'"
+                            },
+                            {
+                              "to": "link",
+                              "expression": "{type: 'state', state: 'contact', parameters: {}}"
+                            },
+                            {
+                              "to": "openIn",
+                              "expression": "'current_window'"
+                            },
+                            {
+                              "to": "tooltip",
+                              "expression": "'Visit the contact page'"
+                            }
+                          ]
+                        }
+                      ],
+                      "comments": "Intrinsic action grid reflows without forcing a horizontal button row on narrow screens."
+                    },
+                    {
+                      "name": "div",
+                      "nodeName": "div",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "aria-label",
+                          "value": "Design principles"
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "width",
+                          "value": "100%"
+                        },
+                        {
+                          "property": "box-sizing",
+                          "value": "border-box"
+                        },
+                        {
+                          "property": "background-color",
+                          "value": "#E6EFEB"
+                        },
+                        {
+                          "property": "border",
+                          "value": "1px solid #D1E0DA"
+                        },
+                        {
+                          "property": "border-radius",
+                          "value": "20px"
+                        },
+                        {
+                          "property": "padding",
+                          "value": "clamp(24px, 4vw, 40px)"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        },
+                        "container": {
+                          "type": "grid",
+                          "columns": [
+                            {
+                              "type": "other",
+                              "value": "repeat(auto-fit, minmax(min(100%, 230px), 1fr))"
+                            }
+                          ],
+                          "rows": [
+                            {
+                              "type": "other",
+                              "value": "auto"
+                            }
+                          ],
+                          "columnGap": "32px",
+                          "rowGap": "24px",
+                          "columnAxisAlignment": "stretch",
+                          "rowAxisAlignment": "stretch"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "p",
+                          "nodeName": "p",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "margin",
+                              "value": "0"
+                            },
+                            {
+                              "property": "font-family",
+                              "value": "Georgia, 'Times New Roman', serif"
+                            },
+                            {
+                              "property": "font-size",
+                              "value": "clamp(1.5rem, 3vw, 2rem)"
+                            },
+                            {
+                              "property": "line-height",
+                              "value": "1.3"
+                            },
+                            {
+                              "property": "color",
+                              "value": "#174B46"
+                            }
+                          ],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "Clarity in the idea.",
+                              "evaluate": false
+                            }
+                          ],
+                          "comments": ""
+                        },
+                        {
+                          "name": "p",
+                          "nodeName": "p",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "margin",
+                              "value": "0"
+                            },
+                            {
+                              "property": "font-family",
+                              "value": "Georgia, 'Times New Roman', serif"
+                            },
+                            {
+                              "property": "font-size",
+                              "value": "clamp(1.5rem, 3vw, 2rem)"
+                            },
+                            {
+                              "property": "line-height",
+                              "value": "1.3"
+                            },
+                            {
+                              "property": "color",
+                              "value": "#174B46"
+                            }
+                          ],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "Care in the craft.",
+                              "evaluate": false
+                            }
+                          ],
+                          "comments": ""
+                        },
+                        {
+                          "name": "p",
+                          "nodeName": "p",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [
+                            {
+                              "property": "margin",
+                              "value": "0"
+                            },
+                            {
+                              "property": "font-family",
+                              "value": "Georgia, 'Times New Roman', serif"
+                            },
+                            {
+                              "property": "font-size",
+                              "value": "clamp(1.5rem, 3vw, 2rem)"
+                            },
+                            {
+                              "property": "line-height",
+                              "value": "1.3"
+                            },
+                            {
+                              "property": "color",
+                              "value": "#174B46"
+                            }
+                          ],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [
+                            {
+                              "name": "text",
+                              "nodeName": "text",
+                              "textContent": "Purpose in every detail.",
+                              "evaluate": false
+                            }
+                          ],
+                          "comments": ""
+                        }
+                      ],
+                      "comments": "Typography-led art direction, not a fabricated project image or a claim about completed work. Native auto-fit grid stacks the three principles."
+                    }
+                  ],
+                  "comments": "Owner-neutral editorial introduction. Actions are core links with confirmed sibling state names, never root-relative URLs."
+                },
+                {
+                  "name": "section",
+                  "nodeName": "section",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "aria-labelledby",
+                      "value": "featured-heading"
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "stretch",
+                      "gap": "24px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#0F766E"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.8rem"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "0.12em"
+                        },
+                        {
+                          "property": "text-transform",
+                          "value": "uppercase"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Selected explorations",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "h2",
+                      "nodeName": "h2",
+                      "elementId": "featured-heading",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "font-family",
+                          "value": "Georgia, 'Times New Roman', serif"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "clamp(2rem, 4vw, 3rem)"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.15"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "-0.03em"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Ideas taking shape.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "640px"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.8"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Three sample concepts exploring clearer products, expressive identities, and thoughtful reading experiences. These are imagined directions, not client case studies.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "div",
+                      "nodeName": "div",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        },
+                        "container": {
+                          "type": "grid",
+                          "columns": [
+                            {
+                              "type": "other",
+                              "value": "repeat(auto-fit, minmax(min(100%, 300px), 1fr))"
+                            }
+                          ],
+                          "rows": [
+                            {
+                              "type": "other",
+                              "value": "auto"
+                            }
+                          ],
+                          "columnGap": "24px",
+                          "rowGap": "24px",
+                          "columnAxisAlignment": "stretch",
+                          "rowAxisAlignment": "stretch"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "card",
+                          "nodeName": "card",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "custom-component",
+                          "ownerId": "6aebcf9fa81d56bf73bff9b1",
+                          "ownerType": "app",
+                          "expressions": [
+                            {
+                              "to": "category",
+                              "expression": "'Sample concept · Product design'"
+                            },
+                            {
+                              "to": "title",
+                              "expression": "'Northstar Finance'"
+                            },
+                            {
+                              "to": "description",
+                              "expression": "'An everyday money-planning concept with a calm spending overview, clear budget categories, and plain-language guidance.'"
+                            },
+                            {
+                              "to": "linkLabel",
+                              "expression": "'View projects'"
+                            },
+                            {
+                              "to": "linkDestination",
+                              "expression": "'projects'"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "card",
+                          "nodeName": "card",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "custom-component",
+                          "ownerId": "6aebcf9fa81d56bf73bff9b1",
+                          "ownerType": "app",
+                          "expressions": [
+                            {
+                              "to": "category",
+                              "expression": "'Sample concept · Brand & digital'"
+                            },
+                            {
+                              "to": "title",
+                              "expression": "'Fieldnotes Studio'"
+                            },
+                            {
+                              "to": "description",
+                              "expression": "'An identity and website concept for an imagined creative studio, pairing expressive typography with a welcoming inquiry experience.'"
+                            },
+                            {
+                              "to": "linkLabel",
+                              "expression": "'View projects'"
+                            },
+                            {
+                              "to": "linkDestination",
+                              "expression": "'projects'"
+                            }
+                          ]
+                        },
+                        {
+                          "name": "card",
+                          "nodeName": "card",
+                          "elementId": "",
+                          "attributes": [],
+                          "classList": [],
+                          "conditionalClasses": [],
+                          "conditionalStyles": [],
+                          "contentType": "text",
+                          "displayExpression": "",
+                          "events": {},
+                          "iterate": {
+                            "array": "",
+                            "variable": "",
+                            "trackByIndex": false
+                          },
+                          "styles": [],
+                          "layout": {
+                            "cell": {
+                              "type": "grid-item"
+                            }
+                          },
+                          "children": [],
+                          "comments": "",
+                          "type": "custom-component",
+                          "ownerId": "6aebcf9fa81d56bf73bff9b1",
+                          "ownerType": "app",
+                          "expressions": [
+                            {
+                              "to": "category",
+                              "expression": "'Sample concept · Editorial experience'"
+                            },
+                            {
+                              "to": "title",
+                              "expression": "'Open Air Journal'"
+                            },
+                            {
+                              "to": "description",
+                              "expression": "'A slow-travel publication concept with generous reading layouts, thoughtful stories, and useful topic browsing for time outdoors.'"
+                            },
+                            {
+                              "to": "linkLabel",
+                              "expression": "'View projects'"
+                            },
+                            {
+                              "to": "linkDestination",
+                              "expression": "'projects'"
+                            }
+                          ]
+                        }
+                      ],
+                      "comments": "Auto-fit native Bellini grid: cards stretch within their row and stack at narrow widths. Shared card actions deliberately lead to the project gallery rather than nonexistent case-study pages."
+                    }
+                  ],
+                  "comments": ""
+                },
+                {
+                  "name": "section",
+                  "nodeName": "section",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "aria-labelledby",
+                      "value": "approach-heading"
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "border-top",
+                      "value": "1px solid #DCE4DF"
+                    },
+                    {
+                      "property": "padding-top",
+                      "value": "clamp(32px, 5vw, 56px)"
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "flex-start",
+                      "gap": "24px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#0F766E"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.8rem"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "0.12em"
+                        },
+                        {
+                          "property": "text-transform",
+                          "value": "uppercase"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "About the approach",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "h2",
+                      "nodeName": "h2",
+                      "elementId": "approach-heading",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "760px"
+                        },
+                        {
+                          "property": "font-family",
+                          "value": "Georgia, 'Times New Roman', serif"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "clamp(2rem, 4vw, 3rem)"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.15"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "-0.03em"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Good questions. Clear thinking. Thoughtful making.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "660px"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.8"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Start with what matters, explore the possibilities, and refine with intention. Discover the ideas and working principles behind this portfolio.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "Link",
+                      "nodeName": "bln-link",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "core",
+                          "value": ""
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [],
+                      "comments": "",
+                      "type": "core-component",
+                      "expressions": [
+                        {
+                          "to": "text",
+                          "expression": "'More about the approach'"
+                        },
+                        {
+                          "to": "link",
+                          "expression": "{type: 'state', state: 'about', parameters: {}}"
+                        },
+                        {
+                          "to": "openIn",
+                          "expression": "'current_window'"
+                        },
+                        {
+                          "to": "icon",
+                          "expression": "{type: 'font-icon', style: 'solid', name: 'arrow-right', position: 'right'}"
+                        },
+                        {
+                          "to": "tooltip",
+                          "expression": "'Visit the About page'"
+                        }
+                      ]
+                    }
+                  ],
+                  "comments": ""
+                },
+                {
+                  "name": "section",
+                  "nodeName": "section",
+                  "elementId": "",
+                  "attributes": [
+                    {
+                      "property": "aria-labelledby",
+                      "value": "contact-heading"
+                    }
+                  ],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "background-color",
+                      "value": "#FFFFFF"
+                    },
+                    {
+                      "property": "border",
+                      "value": "1px solid #DCE4DF"
+                    },
+                    {
+                      "property": "border-radius",
+                      "value": "20px"
+                    },
+                    {
+                      "property": "padding",
+                      "value": "clamp(24px, 5vw, 56px)"
+                    },
+                    {
+                      "property": "overflow-wrap",
+                      "value": "anywhere"
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "flex-start",
+                      "gap": "24px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#0F766E"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.8rem"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "0.12em"
+                        },
+                        {
+                          "property": "text-transform",
+                          "value": "uppercase"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Have something in mind?",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "h2",
+                      "nodeName": "h2",
+                      "elementId": "contact-heading",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "font-family",
+                          "value": "Georgia, 'Times New Roman', serif"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "clamp(2rem, 4vw, 3rem)"
+                        },
+                        {
+                          "property": "font-weight",
+                          "value": "700"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.15"
+                        },
+                        {
+                          "property": "letter-spacing",
+                          "value": "-0.03em"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Let’s make something meaningful.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "max-width",
+                          "value": "600px"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.8"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Every thoughtful experience starts with an idea. Bring a question, a challenge, or a direction you would like to explore.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "Link",
+                      "nodeName": "bln-link",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "core",
+                          "value": ""
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [],
+                      "comments": "",
+                      "type": "core-component",
+                      "expressions": [
+                        {
+                          "to": "text",
+                          "expression": "'Get in touch'"
+                        },
+                        {
+                          "to": "link",
+                          "expression": "{type: 'state', state: 'contact', parameters: {}}"
+                        },
+                        {
+                          "to": "openIn",
+                          "expression": "'current_window'"
+                        },
+                        {
+                          "to": "icon",
+                          "expression": "{type: 'font-icon', style: 'solid', name: 'arrow-right', position: 'right'}"
+                        },
+                        {
+                          "to": "tooltip",
+                          "expression": "'Open the contact page and local form preview'"
+                        }
+                      ]
+                    }
+                  ],
+                  "comments": ""
+                },
+                {
+                  "name": "footer",
+                  "nodeName": "footer",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "conditionalStyles": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": "",
+                    "trackByIndex": false
+                  },
+                  "styles": [
+                    {
+                      "property": "border-top",
+                      "value": "1px solid #DCE4DF"
+                    },
+                    {
+                      "property": "padding-top",
+                      "value": "28px"
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item"
+                    },
+                    "container": {
+                      "type": "box",
+                      "orientation": "column",
+                      "mainAxisAlignment": "flex-start",
+                      "crossAxisAlignment": "stretch",
+                      "gap": "16px"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "p",
+                      "nodeName": "p",
+                      "elementId": "",
+                      "attributes": [],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [
+                        {
+                          "property": "margin",
+                          "value": "0"
+                        },
+                        {
+                          "property": "font-size",
+                          "value": "0.875rem"
+                        },
+                        {
+                          "property": "line-height",
+                          "value": "1.6"
+                        },
+                        {
+                          "property": "color",
+                          "value": "#52636B"
+                        }
+                      ],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [
+                        {
+                          "name": "text",
+                          "nodeName": "text",
+                          "textContent": "Portfolio — Design & Development. Considered ideas, thoughtfully made.",
+                          "evaluate": false
+                        }
+                      ],
+                      "comments": ""
+                    },
+                    {
+                      "name": "Navigation",
+                      "nodeName": "bln-navigation",
+                      "elementId": "",
+                      "attributes": [
+                        {
+                          "property": "core",
+                          "value": ""
+                        },
+                        {
+                          "property": "aria-label",
+                          "value": "Footer navigation"
+                        }
+                      ],
+                      "classList": [],
+                      "conditionalClasses": [],
+                      "conditionalStyles": [],
+                      "contentType": "text",
+                      "displayExpression": "",
+                      "events": {},
+                      "iterate": {
+                        "array": "",
+                        "variable": "",
+                        "trackByIndex": false
+                      },
+                      "styles": [],
+                      "layout": {
+                        "cell": {
+                          "type": "box-item"
+                        }
+                      },
+                      "children": [],
+                      "comments": "",
+                      "type": "core-component",
+                      "expressions": [
+                        {
+                          "to": "orientation",
+                          "expression": "'horizontal'"
+                        },
+                        {
+                          "to": "alignment",
+                          "expression": "'left'"
+                        },
+                        {
+                          "to": "visible",
+                          "expression": "false"
+                        },
+                        {
+                          "to": "menuItems",
+                          "expression": "[{label: 'Home', evaluateLabel: false, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'home', parameters: {}}}, {label: 'Projects', evaluateLabel: false, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'projects', parameters: {}}}, {label: 'About', evaluateLabel: false, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'about', parameters: {}}}, {label: 'Contact', evaluateLabel: false, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'contact', parameters: {}}}]"
+                        }
+                      ]
+                    }
+                  ],
+                  "comments": "Simple footer navigation uses the core navigation component with its brand hidden. All four destinations are existing bare page states; core responsive and focus behavior is preserved."
+                }
+              ],
+              "comments": ""
+            }
+          ],
+          "comments": ""
+        }
+      ],
+      "comments": "Existing page shell: shared responsive navigation above an independently scrollable content area."
+    }
+  ],
+  "description": "## Portfolio Home\nA welcoming portfolio landing page with shared app navigation, an editorial hero, three featured sample concepts, an About teaser, and a contact invitation. Preserves the existing home state and /home route.\n\n### Navigation and content\nEvery internal action uses schema-confirmed LinkState objects targeting the existing bare home, projects, about, or contact page names. Featured shared cards receive linkDestination projects and the honest action label View projects; these concepts are not client case studies. Shared navigation and card components already resolve internal destinations to states and are reused unchanged. No fabricated identity, achievements, testimonials, imagery, or external URLs. Contact remains a local prototype on its existing page.\n\n### Presentation\nBellini box layouts and intrinsic auto-fit grids provide responsive flow without fixed column placements. Supported element visual styles provide warm ivory, ink editorial typography, teal accents, constrained content width, responsive padding, and rounded panels. Core links and navigation retain their built-in keyboard and focus behavior. No utility classes, custom stylesheet, or new page."
+}

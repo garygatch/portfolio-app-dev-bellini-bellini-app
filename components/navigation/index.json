@@ -1,0 +1,59 @@
+{
+  "type": "custom-component",
+  "name": "navigation",
+  "description": "## Shared Portfolio Navigation\nReusable app-owned horizontal navigation using core `bln-navigation`, including its native responsive/collapsed menu and keyboard behavior.\n\n### Destinations\nSibling page names and URLs are `home` → `/home`, `about` → `/about`, `projects` → `/projects`, and `contact` → `/contact`. All four items use schema-confirmed `LinkState` objects with those page names, not root-relative URLs or invented app-prefixed states. The clickable Portfolio brand links to `home`. Navigation MenuItem `openIn` values are `current-window` and `new-window`; every item explicitly uses `current-window`. The brand exposes only `link`, not an `openIn` binding, and retains the core component's same-window brand navigation.\n\n### Appearance and accessibility\nInherits the active Portfolio theme's supported navigation settings: white surface against the app's ivory background, ink brand/text, teal hover/active accents, padded menu items, rounded interaction surfaces, and subtle bottom border. Existing app theme remains unchanged. Verified Font Awesome 5 solid briefcase/envelope icons supplement the visible Projects/Contact labels; no icon-only controls, imagery, utility classes, custom CSS, or logo URL. Native collapse state and toggle behavior are not overridden.",
+  "children": [
+    {
+      "name": "Navigation",
+      "nodeName": "bln-navigation",
+      "attributes": [
+        {
+          "property": "core",
+          "value": ""
+        },
+        {
+          "property": "aria-label",
+          "value": "Portfolio primary navigation"
+        }
+      ],
+      "classList": [],
+      "children": [],
+      "comments": "Retains the core responsive navigation and built-in toggle with no forced collapsed state. Brand uses the supported link binding (same-window core behavior); menu items use the verified hyphenated current-window value, not bln-link's different underscore convention. Sibling page names are used directly as states. Appearance is supplied entirely by the existing Portfolio navigation theme settings. Visible text accompanies both verified icons.",
+      "type": "core-component",
+      "expressions": [
+        {
+          "expression": "'horizontal'",
+          "to": "orientation"
+        },
+        {
+          "expression": "'right'",
+          "to": "alignment"
+        },
+        {
+          "expression": "'Portfolio'",
+          "to": "label"
+        },
+        {
+          "expression": "true",
+          "to": "visible"
+        },
+        {
+          "expression": "'left'",
+          "to": "position"
+        },
+        {
+          "expression": "{type: 'state', state: 'home', parameters: {}}",
+          "to": "link"
+        },
+        {
+          "expression": "[{label: 'Home', evaluateLabel: false, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'home', parameters: {}}}, {label: 'About', evaluateLabel: false, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'about', parameters: {}}}, {label: 'Projects', evaluateLabel: false, icon: {type: 'font-icon', style: 'solid', name: 'briefcase', position: 'left'}, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'projects', parameters: {}}}, {label: 'Contact', evaluateLabel: false, icon: {type: 'font-icon', style: 'solid', name: 'envelope', position: 'left'}, onClick: 'link', openIn: 'current-window', link: {type: 'state', state: 'contact', parameters: {}}}]",
+          "to": "menuItems"
+        }
+      ]
+    }
+  ],
+  "variables": [],
+  "bindings": [],
+  "modules": [],
+  "styles": []
+}
